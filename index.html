@@ -355,40 +355,43 @@
   <!-- For email submission -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    (function() {
-        const public_key = import.meta.env.VITE_EMAILJS_PUBLIC_KEY; // Your Public Key
-        emailjs.init(public_key); // Use your Public Key
-    })();
+      (function() {
+          fetch('/api/env')
+              .then(response => response.json())
+              .then(env => {
+                  emailjs.init(env.VITE_EMAILJS_PUBLIC_KEY);
+              })
+              .catch(error => console.error("Error loading environment variables:", error));
+      })();
 
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent page refresh
+      document.getElementById("contact-form").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent page refresh
 
-        document.querySelector(".loading").style.display = "block";
+          document.querySelector(".loading").style.display = "block";
 
-        const service_id = import.meta.env.VITE_EMAILJS_SERVICE_ID; // Your Service ID
-        const template_id = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; // Your Template ID
+          fetch('/api/env')
+              .then(response => response.json())
+              .then(env => {
+                  let templateParams = {
+                      from_name: document.getElementById("name").value,
+                      from_email: document.getElementById("email").value,
+                      subject: document.getElementById("subject").value,
+                      message: document.getElementById("message").value
+                  };
 
-        let templateParams = {
-            from_name: document.getElementById("name").value,
-            from_email: document.getElementById("email").value,
-            subject: document.getElementById("subject").value,
-            message: document.getElementById("message").value
-        };
-
-        emailjs.send(service_id, template_id, templateParams)
-            .then(function(response) {
-                console.log("SUCCESS!", response.status, response.text);
-                document.querySelector(".loading").style.display = "none";
-                document.querySelector(".sent-message").style.display = "block";
-                // document.querySelector(".error-message").style.display = "none";
-                document.getElementById("contact-form").reset(); // Clear form after submission
-            }, function(error) {
-                console.log("FAILED...", error);
-                document.querySelector(".loading").style.display = "none";
-                // document.querySelector(".error-message").innerText = "Failed to send email. Try again.";
-                // document.querySelector(".error-message").style.display = "block";
-            });
-    }); 
+                  emailjs.send(env.VITE_EMAILJS_SERVICE_ID, env.VITE_EMAILJS_TEMPLATE_ID, templateParams)
+                      .then(function(response) {
+                          console.log("SUCCESS!", response.status, response.text);
+                          document.querySelector(".loading").style.display = "none";
+                          document.querySelector(".sent-message").style.display = "block";
+                          document.getElementById("contact-form").reset(); // Clear form after submission
+                      }, function(error) {
+                          console.log("FAILED...", error);
+                          document.querySelector(".loading").style.display = "none";
+                      });
+              })
+              .catch(error => console.error("Error fetching environment variables:", error));
+      }); 
   </script>
 
   <!-- Main JS File -->
