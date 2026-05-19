@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useTemplateEffects } from "./hooks/useTemplaceEffects";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -60,6 +61,18 @@ function App() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const preloader = document.querySelector("#preloader");
+
+    if (preloader) {
+      setTimeout(() => {
+        preloader.remove();
+      }, 500);
+    }
+  }, []);
+
+  useTemplateEffects();
 
   return (
     <>
