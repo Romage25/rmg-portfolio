@@ -11,8 +11,13 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "glightbox": "^3.3.1",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react-dom": "^19.2.6",
+    "swiper": "^12.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
