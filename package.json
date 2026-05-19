@@ -17,7 +17,8 @@
     "glightbox": "^3.3.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "swiper": "^12.1.4"
+    "swiper": "^12.1.4",
+    "typed.js": "^3.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
