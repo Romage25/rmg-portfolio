@@ -35,6 +35,11 @@
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
+
+.navmenu a {
+  text-decoration: none;
+}
+
 /* Desktop Navigation */
 @media (min-width: 1200px) {
   .navmenu {
