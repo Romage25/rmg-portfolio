@@ -1,3 +1,8 @@
+import App1Img from '../assets/img/portfolio/app-1.jpg'
+import Personal1Img from '../assets/img/portfolio/personal-1.jpg'
+import Personal2Img from '../assets/img/portfolio/personal-2.jpg'
+import Personal3Img from '../assets/img/portfolio/personal-3.png'
+
 export default function Portfolio() {
   return (
     <section id="portfolio" className="portfolio section">
@@ -35,7 +40,7 @@ export default function Portfolio() {
           >
             <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img
-                src="assets/img/portfolio/app-1.jpg"
+                src={App1Img}
                 className="img-fluid"
                 alt=""
               />
@@ -43,7 +48,7 @@ export default function Portfolio() {
                 <h4>SSV HOA Website</h4>
                 <p>Homeowners Association Website.</p>
                 <a
-                  href="assets/img/portfolio/app-1.jpg"
+                  href={App1Img}
                   title="SSV HOA Website"
                   data-gallery="portfolio-gallery-app"
                   className="glightbox preview-link"
@@ -63,7 +68,7 @@ export default function Portfolio() {
 
             <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-personal">
               <img
-                src="assets/img/portfolio/personal-1.jpg"
+                src={Personal1Img}
                 className="img-fluid"
                 alt=""
               />
@@ -71,7 +76,7 @@ export default function Portfolio() {
                 <h4>Random Quote Machine</h4>
                 <p>Add a quote for other people to see.</p>
                 <a
-                  href="assets/img/portfolio/personal-1.jpg"
+                  href={Personal1Img}
                   title="Random Quote Machine"
                   data-gallery="portfolio-gallery-app"
                   className="glightbox preview-link"
@@ -91,7 +96,7 @@ export default function Portfolio() {
 
             <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-personal">
               <img
-                src="assets/img/portfolio/personal-2.jpg"
+                src={Personal2Img}
                 className="img-fluid"
                 alt=""
               />
@@ -99,7 +104,7 @@ export default function Portfolio() {
                 <h4>Calculator</h4>
                 <p>Calculator.</p>
                 <a
-                  href="assets/img/portfolio/personal-2.jpg"
+                  href={Personal2Img}
                   title="Calculator"
                   data-gallery="portfolio-gallery-app"
                   className="glightbox preview-link"
@@ -119,7 +124,7 @@ export default function Portfolio() {
 
             <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-personal">
               <img
-                src="assets/img/portfolio/personal-3.png"
+                src={Personal3Img}
                 className="img-fluid"
                 alt=""
               />
@@ -127,7 +132,7 @@ export default function Portfolio() {
                 <h4>Triviona</h4>
                 <p>Triviona Quiz App.</p>
                 <a
-                  href="assets/img/portfolio/personal-3.png"
+                  href={Personal3Img}
                   title="Calculator"
                   data-gallery="portfolio-gallery-app"
                   className="glightbox preview-link"

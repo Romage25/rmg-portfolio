@@ -1,3 +1,6 @@
+import ProfileImg from '../assets/img/profile-img.jpg';
+import Resume from '../assets/resume/Rodel-Gerodias-Resume-2025.pdf';
+
 export default function About() {
   return (
     <section id="about" className="about section">
@@ -7,7 +10,7 @@ export default function About() {
             <div className="row justify-content-between gy-4">
               <div className="col-lg-5">
                 <img
-                  src="assets/img/profile-img.jpg"
+                  src={ProfileImg}
                   className="img-fluid"
                   alt=""
                 />
@@ -31,7 +34,7 @@ export default function About() {
               {/* Download Resume Button (Full Width Below Image & Info) */}
               <div className="col-12 text-center mt-5">
                 <a
-                  href="assets/resume/Rodel-Gerodias-Resume-2025.pdf"
+                  href={Resume}
                   download
                   className="btn btn-lg btn-outline-primary px-4 py-3 rounded-pill shadow-sm fw-bold d-inline-flex align-items-center"
                 >
