@@ -142,7 +142,7 @@ export default function Portfolio() {
                 <p>Triviona Quiz App.</p>
                 <a
                   href={Personal3Img}
-                  title="Calculator"
+                  title="Triviona Quiz App."
                   data-gallery="portfolio-gallery-app"
                   className="glightbox preview-link"
                 >
