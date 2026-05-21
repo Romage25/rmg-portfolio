@@ -15,11 +15,13 @@ export default function Portfolio() {
     const filters = document.querySelectorAll(".portfolio-filters li");
 
     filters.forEach((btn) => {
-      btn.addEventListener("click", function () {
-        filters.forEach((el) => el.classList.remove("filter-active"));
-        this.classList.add("filter-active");
+      btn.addEventListener("click", (e) => {
+        const target = e.currentTarget as HTMLElement;
 
-        const filterValue = this.getAttribute("data-filter");
+        filters.forEach((el) => el.classList.remove("filter-active"));
+        target.classList.add("filter-active");
+
+        const filterValue = target.getAttribute("data-filter") || "*";
         iso.arrange({ filter: filterValue });
       });
     });
