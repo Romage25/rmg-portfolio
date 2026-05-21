@@ -1,9 +1,32 @@
-import App1Img from '../assets/img/portfolio/app-1.jpg'
-import Personal1Img from '../assets/img/portfolio/personal-1.jpg'
-import Personal2Img from '../assets/img/portfolio/personal-2.jpg'
-import Personal3Img from '../assets/img/portfolio/personal-3.png'
+import Isotope from "isotope-layout";
+import { useEffect } from "react";
+import App1Img from "../assets/img/portfolio/app-1.jpg";
+import Personal1Img from "../assets/img/portfolio/personal-1.jpg";
+import Personal2Img from "../assets/img/portfolio/personal-2.jpg";
+import Personal3Img from "../assets/img/portfolio/personal-3.png";
 
 export default function Portfolio() {
+  useEffect(() => {
+    const iso = new Isotope(".isotope-container", {
+      itemSelector: ".portfolio-item",
+      layoutMode: "masonry",
+    });
+
+    const filters = document.querySelectorAll(".portfolio-filters li");
+
+    filters.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        filters.forEach((el) => el.classList.remove("filter-active"));
+        this.classList.add("filter-active");
+
+        const filterValue = this.getAttribute("data-filter");
+        iso.arrange({ filter: filterValue });
+      });
+    });
+
+    return () => iso.destroy();
+  }, []);
+
   return (
     <section id="portfolio" className="portfolio section">
       {/* Section Title */}
@@ -39,11 +62,7 @@ export default function Portfolio() {
             data-aos-delay="200"
           >
             <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img
-                src={App1Img}
-                className="img-fluid"
-                alt=""
-              />
+              <img src={App1Img} className="img-fluid" alt="" />
               <div className="portfolio-info">
                 <h4>SSV HOA Website</h4>
                 <p>Homeowners Association Website.</p>
@@ -67,11 +86,7 @@ export default function Portfolio() {
             {/* !End Portfolio Item */}
 
             <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-personal">
-              <img
-                src={Personal1Img}
-                className="img-fluid"
-                alt=""
-              />
+              <img src={Personal1Img} className="img-fluid" alt="" />
               <div className="portfolio-info">
                 <h4>Random Quote Machine</h4>
                 <p>Add a quote for other people to see.</p>
@@ -95,11 +110,7 @@ export default function Portfolio() {
             {/* !Portfolio Item */}
 
             <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-personal">
-              <img
-                src={Personal2Img}
-                className="img-fluid"
-                alt=""
-              />
+              <img src={Personal2Img} className="img-fluid" alt="" />
               <div className="portfolio-info">
                 <h4>Calculator</h4>
                 <p>Calculator.</p>
@@ -123,11 +134,7 @@ export default function Portfolio() {
             {/* !Portfolio Item */}
 
             <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-personal">
-              <img
-                src={Personal3Img}
-                className="img-fluid"
-                alt=""
-              />
+              <img src={Personal3Img} className="img-fluid" alt="" />
               <div className="portfolio-info">
                 <h4>Triviona</h4>
                 <p>Triviona Quiz App.</p>
