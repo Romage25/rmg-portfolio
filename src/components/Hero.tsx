@@ -1,7 +1,9 @@
+import HeroImg from '../assets/img/hero-img.jpg';
+
 export default function Hero() {
   return (
     <section id="hero" className="hero section dark-background">
-      <img src="assets/img/hero-img.jpg" alt="" data-aos="fade-in" />
+      <img src={HeroImg} alt="hero image" data-aos="fade-in" />
 
       <div
         className="container d-flex flex-column align-items-center justify-content-center text-center"
