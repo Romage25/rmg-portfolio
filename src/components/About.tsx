@@ -1,5 +1,5 @@
 import ProfileImg from '../assets/img/profile-img.jpg';
-import Resume from '../assets/resume/Rodel-Gerodias-Resume-2025.pdf';
+import Resume from '../assets/resume/Rodel-Gerodias-Resume-2026.pdf';
 
 export default function About() {
   return (
